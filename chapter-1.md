@@ -1,17 +1,12 @@
-Phylogenetic influences on the commonness and rarity of species.
-________________________________________________________________
+##Working title:  Phylogenetic influences on the commonness and rarity of species.
 
-Introduction
-____________
+##Introduction
 
-Methods
-_______
+##Methods
+  
+##Results
 
-Results
-_______
+##Discussion
 
-Discussion
-__________
+##References
 
-References
-__________
