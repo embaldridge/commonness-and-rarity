@@ -15,14 +15,14 @@ def output_data(filename, header, data):
 
 """ Set up database capabilities """
 # Set up ability to query data
-con = dbapi.connect('mammal-bird-abundance-data.sqlite')
+con = dbapi.connect('data/mammal-bird-abundance-data.sqlite')
 cur = con.cursor()
 
 # Switch con data type to string
 con.text_factory = str
 
 # Query to extract BBS data for analysis
-sql_query = cur.execute("""SELECT  BBS_counts.statenum, BBS_counts.route, BBS_species.genus AS Genus, BBS_species.species AS Species, BBS_counts.Aou AS AOU, BBS_counts.SpeciesTotal AS Abundance FROM BBS_counts
+sql_query = cur.execute("""SELECT BBS_counts.statenum, BBS_counts.route, BBS_species.genus AS Genus, BBS_species.species AS Species, BBS_counts.Aou AS AOU, BBS_counts.SpeciesTotal AS Abundance FROM BBS_counts
     JOIN BBS_species 
     ON BBS_counts.Aou == BBS_species.AOU
     WHERE BBS_counts.countrynum == "840" AND BBS_counts.RPID == "101" AND BBS_counts.YEAR == "2005";""")
