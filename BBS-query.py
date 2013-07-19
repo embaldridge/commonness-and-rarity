@@ -27,7 +27,7 @@ sql_query = cur.execute("""SELECT BBS_counts.statenum, BBS_counts.route, BBS_spe
     ON BBS_counts.Aou == BBS_species.AOU
     JOIN BBS_routes
     ON BBS_counts.route == BBS_routes.route
-    WHERE BBS_counts.countrynum == "840" AND BBS_counts.RPID == "101" AND BBS_counts.YEAR == "2005";""")
+    WHERE BBS_counts.countrynum == "840" AND BBS_counts.RPID == "101" AND BBS_species.id_to_species == "1" AND BBS_counts.YEAR == "2005";""")
 
 BBS_data = cur.fetchall()
 
