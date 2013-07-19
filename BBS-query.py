@@ -22,7 +22,10 @@ cur = con.cursor()
 con.text_factory = str
 
 # Query to extract BBS data for analysis
-# (BBS_tablename.statenum * 1000 + BBS_tablename.route) creates a unique identifier for the BBS routes
+# (BBS_tablename.statenum * 1000 + BBS_tablename.route) creates a unique identifier for the BBS routes.
+# BBS_species.id_to_species = 1 selects for records that have been identified to species- excludes uncertain ID records.
+# Countrynum = 840 selects for United States records.
+# RPID = 101 selects for standard routes.
 sql_query = cur.execute("""SELECT (BBS_counts.statenum * 1000 + BBS_counts.route) AS RouteID, BBS_species.genus AS Genus, BBS_species.species AS Species, BBS_routes.lati AS latitude, BBS_routes.loni AS longitude, BBS_counts.Aou AS AOU, BBS_counts.SpeciesTotal AS Abundance FROM BBS_counts
     JOIN BBS_species 
     ON BBS_counts.Aou == BBS_species.AOU
