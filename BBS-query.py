@@ -22,7 +22,7 @@ cur = con.cursor()
 con.text_factory = str
 
 # Query to extract BBS data for analysis
-sql_query = cur.execute("""SELECT BBS_counts.statenum, BBS_counts.route, BBS_species.genus AS Genus, BBS_species.species AS Species, BBS_routes.lati AS latitude, BBS_routes.loni AS longitude, BBS_counts.Aou AS AOU, BBS_counts.SpeciesTotal AS Abundance FROM BBS_counts
+sql_query = cur.execute("""SELECT (BBS_counts.statenum * 1000 + BBS_counts.route) AS RouteID, BBS_species.genus AS Genus, BBS_species.species AS Species, BBS_routes.lati AS latitude, BBS_routes.loni AS longitude, BBS_counts.Aou AS AOU, BBS_counts.SpeciesTotal AS Abundance FROM BBS_counts
     JOIN BBS_species 
     ON BBS_counts.Aou == BBS_species.AOU
     JOIN BBS_routes
@@ -33,7 +33,7 @@ BBS_data = cur.fetchall()
 
 # Set up output parameters
 
-BBS_header = (['State_ID','Route_ID','Genus','Species','AOU','Abundance'])
+BBS_header = (['Route_ID','Genus','Species','AOU','Abundance'])
 BBS_filename = 'BBS_extracted.csv'
 
 
