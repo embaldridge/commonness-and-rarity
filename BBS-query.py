@@ -26,12 +26,14 @@ con.text_factory = str
 # BBS_species.id_to_species = 1 selects for records that have been identified to species- excludes uncertain ID records.
 # Countrynum = 840 selects for United States records.
 # RPID = 101 selects for standard routes.
-sql_query = cur.execute("""SELECT (BBS_counts.statenum * 1000 + BBS_counts.route) AS RouteID, BBS_species.genus AS Genus, BBS_species.species AS Species, BBS_routes.lati AS latitude, BBS_routes.loni AS longitude, BBS_counts.Aou AS AOU, BBS_counts.SpeciesTotal AS Abundance FROM BBS_counts
+sql_query = cur.execute("""SELECT (BBS_weather.statenum * 10000000 + BBS_weather.route * 10000 + BBS_weather.year) AS RouteYear, (BBS_counts.statenum * 1000 + BBS_counts.route) AS RouteID, BBS_species.sporder AS SpOrder, BBS_species.genus AS Genus, BBS_species.species AS Species, BBS_routes.lati AS latitude, BBS_routes.loni AS longitude, BBS_counts.Aou AS AOU, BBS_counts.SpeciesTotal AS Abundance FROM BBS_counts
     JOIN BBS_species 
     ON BBS_counts.Aou == BBS_species.AOU
     JOIN BBS_routes
     ON (BBS_counts.statenum * 1000 + BBS_counts.route) == (BBS_routes.statenum * 1000 + BBS_routes.route)
-    WHERE BBS_counts.countrynum == "840" AND BBS_counts.RPID == "101" AND BBS_species.id_to_species == "1" AND BBS_counts.YEAR == "2005";""")
+    JOIN BBS_weather
+    ON (BBS_counts.statenum * 10000000 + BBS_counts.route * 10000 + BBS_counts.year) == (BBS_weather.statenum * 10000000 + BBS_weather.route * 10000 + BBS_weather.year)
+    WHERE BBS_counts.countrynum == "840" AND BBS_counts.RPID == "101" AND BBS_species.sporder == "Passeriformes" AND BBS_counts.YEAR == "2005";""")
 
 BBS_data = cur.fetchall()
 
