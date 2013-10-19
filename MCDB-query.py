@@ -25,12 +25,25 @@ con = psycopg2.connect(con_string)
 cur = con.cursor()
 
 # Query will go here
-sql_query = cur.execute("""SELECT * FROM mcdb.communities;""")
+sql_query = cur.execute("""SELECT 
+  communities.abundance, 
+  sites.latitude, 
+  sites.lonitude, 
+  species.genus, 
+  species.species
+FROM 
+  mcdb.communities, 
+  mcdb.sites, 
+  mcdb.species
+WHERE 
+  communities.site_id = sites.site_id AND
+  communities.species_id = species.species_id AND
+  species.species_level = 1;""")
 mcdb_data = cur.fetchall()    
 
 # Set up output parameters
 
-mcdb_header = (['Latitude', 'Longitude','Genus','Species','Abundance'])
+mcdb_header = (['Abundance', 'Latitude', 'Longitude','Genus','Species'])
 mcdb_filename = 'MCDB_extracted.csv'
 
 
