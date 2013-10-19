@@ -21,13 +21,12 @@ key = getpass.getpass()
 """ Set up database capabilities """
 # Set up ability to query data
 con_string = "host='localhost' dbname='mcdb' user='postgres' password=" + key
-print(con_string)
 con = psycopg2.connect(con_string)
 cur = con.cursor()
 
 # Query will go here
-
-mcdb_data = cur.fetchall()
+sql_query = cur.execute("""SELECT * FROM mcdb.communities;""")
+mcdb_data = cur.fetchall()    
 
 # Set up output parameters
 
