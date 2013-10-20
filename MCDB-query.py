@@ -38,7 +38,8 @@ FROM
 WHERE 
   communities.site_id = sites.site_id AND
   communities.species_id = species.species_id AND
-  species.species_level = 1;""")
+  species.species_level = 1 AND
+  communities.abundance NOTNULL;""")
 mcdb_data = cur.fetchall()    
 
 # Set up output parameters
