@@ -28,7 +28,8 @@ cur = con.cursor()
 sql_query = cur.execute("""SELECT 
   communities.abundance, 
   sites.latitude, 
-  sites.lonitude, 
+  sites.lonitude,
+  species.family,
   species.genus, 
   species.species
 FROM 
@@ -44,7 +45,7 @@ mcdb_data = cur.fetchall()
 
 # Set up output parameters
 
-mcdb_header = (['Abundance', 'Latitude', 'Longitude','Genus','Species'])
+mcdb_header = (['Abundance', 'Latitude', 'Longitude', 'Family', 'Genus','Species'])
 mcdb_filename = 'MCDB_extracted.csv'
 
 
