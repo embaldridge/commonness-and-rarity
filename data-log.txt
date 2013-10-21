@@ -8,7 +8,7 @@ NatureServe Range maps:
 Birds: Passeriformes (5-7) downloaded 03 March 2013
 Ridgely, R. S., T. F. Allnutt, T. Brooks, D. K. McNicol, D. W. Mehlman, B. E. Young, and J. R. Zook. 2007. Digital Distribution Maps of the Birds of the Western Hemisphere, version 3.0. NatureServe, Arlington, Virginia, USA.
 
-Mammals: Small mammals downloaded 03 March 2013
+Mammals: Small mammals downloaded 03 March 2013 - 20 Oct 2013: All families downloaded, replacing earlier download.
       (Cricetidae, Dipodidae, Heteromyidae, Leporidae, Ochotonidae, Sciuridae, Soricidae, Talpidae)
 Patterson, B. D., G. Ceballos, W. Sechrest, M. F. Tognelli, T. Brooks, L. Luna, P. Ortega, I. Salazar, and B. E. Young. 2007. Digital Distribution Maps of the Mammals of the Western Hemisphere, version 3.0. NatureServe, Arlington, Virginia, USA.
 
