@@ -3,6 +3,7 @@
 # Import modules
 import csv
 import string
+import fiona
 
 # Write outputs to .csv file 
 def output_data(filename, header, data):
