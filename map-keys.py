@@ -19,11 +19,14 @@ def output_data(filename, header, data):
 # Read dbf and write family, genus, species into file
 def make_key(filenames):
     key = []
-    for files in filenames:
-        db = dbf.Dbf(files)
-        print(db[0])
-        rec = db[0]
-        key = key + rec
+    for filename in filenames:
+        db = dbf.Dbf(filename)
+        for record in db:
+            if len(key) == 0:
+                key = key + [record[1]] + [filename]
+            elif record[1] != key[-1]:
+                key = key + [record[1]] + [filename]
+        print key
         return key
 
 # Get list of .dbf files in map directory
@@ -37,7 +40,6 @@ bird_key_filename = 'bird_maps_key.csv'
 
 # Call map key function
 mammal_key_data = make_key(mammal_files)
-print(mammal_key_data)
 bird_key_data = make_key(bird_files)
 
 # Call data output function
