@@ -3,7 +3,7 @@
 # Import modules
 import csv
 import string
-import fiona
+from dbfpy import dbf
 
 # Write outputs to .csv file 
 def output_data(filename, header, data):
@@ -19,6 +19,10 @@ key_header = (['Family', 'Genus','Species', 'Filename'])
 mammal_key_filename = 'mammal_maps_key.csv'
 bird_key_filename = 'bird_maps_key.csv'
 
+
+# Read dbf and write family, genus, species into file
+db = dbf.Dbf(data//order/family/mapname.dbf)
+rec = string.split(db[2])
 
 # Call data output function
 output_data(mammal_key_filename, key_header, mammal_key_data)
