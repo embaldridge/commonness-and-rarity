@@ -26,8 +26,8 @@ def file_list(folder_path):
 
 
 #Set up file directory parameters
-mammals_folder:(["/data/Mammals_3.0"])
-birds_folder:(["/data/Passeriformes"])
+mammals_folder = '/data/Mammals_3.0'
+birds_folder = '/data/Passeriformes'
 
 
 # Set up output parameters
