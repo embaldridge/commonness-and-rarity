@@ -21,13 +21,10 @@ def make_key(filenames):
     key = []
     for filename in filenames:
         db = dbf.Dbf(filename)
-        for record in db:
-            if len(key) == 0:
-                key = key + [record[1]] + [filename]
-            elif record[1] != key[-1]:
-                key = key + [record[1]] + [filename]
-        print key
-        return key
+        record = db[0]
+        key = key + [[record[3]] + string.split(record[1]) + [filename]]
+        db.close()
+    return key
 
 # Get list of .dbf files in map directory
 mammal_files = glob.glob('data/Mammals_3.0/*/*.dbf')
@@ -43,5 +40,5 @@ mammal_key_data = make_key(mammal_files)
 bird_key_data = make_key(bird_files)
 
 # Call data output function
-#output_data(mammal_key_filename, key_header, mammal_key_data)
-#output_data(bird_key_filename, key_header, bird_key_data)  
+output_data(mammal_key_filename, key_header, mammal_key_data)
+output_data(bird_key_filename, key_header, bird_key_data)  
