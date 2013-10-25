@@ -20,18 +20,21 @@ def output_data(filename, header, data):
 def make_key(filenames):
     key = []
     for filename in filenames:
+        path = filename.split("/") # Splits path name by /
+        file_ext = path[-1] # Obtains filename without path
+        species_code = file_ext.split("_pl.dbf") # Separates species code from shapefile type (pl) and file extension.
         db = dbf.Dbf(filename) # Open dbf file into variable db
         record = db[0] # Get record from the first record in the database
-        key = key + [[record[3]] + string.split(record[1]) + [filename]] # key = family + genus + species + filename
+        key = key + [[record[3]] + string.split(record[1]) + [species_code[0]]] # key = family + genus + species + species code
         db.close()
     return key
 
 # Get list of .dbf files in map directory
-mammal_files = glob.glob('data/Mammals_3.0/*/*.dbf')
-bird_files = glob.glob('data/Passeriformes/*/*.dbf')
+mammal_files = glob.glob('data/Mammals_3.0/*/*_pl.dbf')
+bird_files = glob.glob('data/Passeriformes/*/*_pl.dbf')
 
 # Set up output parameters
-key_header = (['Family', 'Genus','Species', 'Filename'])
+key_header = (['Family', 'Genus','Species', 'Species code'])
 mammal_key_filename = 'mammal_maps_key.csv'
 bird_key_filename = 'bird_maps_key.csv'
 
