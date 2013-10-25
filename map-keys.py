@@ -20,9 +20,9 @@ def output_data(filename, header, data):
 def make_key(filenames):
     key = []
     for filename in filenames:
-        db = dbf.Dbf(filename)
-        record = db[0]
-        key = key + [[record[3]] + string.split(record[1]) + [filename]]
+        db = dbf.Dbf(filename) # Open dbf file into variable db
+        record = db[0] # Get record from the first record in the database
+        key = key + [[record[3]] + string.split(record[1]) + [filename]] # key = family + genus + species + filename
         db.close()
     return key
 
