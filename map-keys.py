@@ -20,12 +20,18 @@ def output_data(filename, header, data):
 def make_key(filenames):
     key = []
     for filename in filenames:
+        # Extract species code
         path = filename.split("/") # Splits path name by /
         file_ext = path[-1] # Obtains filename without path
         species_code = file_ext.split("_pl.dbf") # Separates species code from shapefile type (pl) and file extension.
+        
+        # Extract metadata from file
         db = dbf.Dbf(filename) # Open dbf file into variable db
         record = db[0] # Get record from the first record in the database
+        
+        # Associate metadata with species code
         key = key + [[record[3]] + string.split(record[1]) + [species_code[0]]] # key = family + genus + species + species code
+        
         db.close()
     return key
 
