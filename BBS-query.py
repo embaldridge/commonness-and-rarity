@@ -26,19 +26,15 @@ cur = con.cursor()
 
 # Query to extract BBS data for analysis
 # (BBS_tablename.statenum * 1000 + BBS_tablename.route) creates a unique identifier for the BBS routes.
-# BBS_species.id_to_species = 1 selects for records that have been identified to species- excludes uncertain ID records.
 # Countrynum = 840 selects for United States records.
 # RPID = 101 selects for standard routes.
 sql_query = cur.execute("""SELECT 
-    (weather.statenum * 10000000 + weather.route * 10000 + weather.year) AS RouteIDYear,
-    (counts.statenum * 1000 + counts.route) AS RouteID, 
-    species.sporder AS SpOrder,
+    routes.lati AS latitude, 
+    routes.loni AS longitude,
     species.family AS Family,
     species.genus AS Genus, 
-    species.species AS Species, 
-    routes.lati AS latitude, 
-    routes.loni AS longitude, 
-    counts.Aou AS AOU, 
+    species.species AS Species,
+    counts.Aou AS AOU,
     counts.SpeciesTotal AS Abundance 
 FROM 
     bbs.counts,
@@ -58,7 +54,7 @@ BBS_data = cur.fetchall()
 
 # Set up output parameters
 
-BBS_header = (['Route_ID','Genus','Species','AOU','Abundance'])
+BBS_header = (['Latitude', 'Longitude','Family','Genus','Species','AOU','Abundance'])
 BBS_filename = 'BBS_extracted.csv'
 
 
