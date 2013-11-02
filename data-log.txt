@@ -7,6 +7,7 @@ Data downloaded 3/1/2013
 Range maps:
 Birds: Passeriformes (5-7) downloaded 03 March 2013
 25 Oct 2013, submitted request for maps of birds of the world from www.birdlife.org.
+Geodatabase format for Birds of the World downloaded 1 Nov 2013.  Started downloading shapefiles 2 Nov 2013, in case geodatabase format is hard.
 http://www.birdlife.org/datazone/info/dataterms
 
 Terms of use:
