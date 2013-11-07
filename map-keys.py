@@ -50,23 +50,21 @@ bird_key_data = make_key(bird_files)
 
 """ Set up database parameters and insert data into respective databases """
 # Get password for postgresql
-password = getpass.getpass()
+passwd = getpass.getpass()
 
 # Set up ability to query mammal key data
-con_string = "host='localhost' dbname= 'mcdb' user='postgres' password=" + password
-con = psycopg2.connect(con_string)
+con= psycopg2.connect(host= "localhost", database="mcdb", user="postgres", password= passwd)
 cur = con.cursor()
 
 # Create table for mammal key data 
 cur.execute("DROP TABLE IF EXISTS MammalMapKey")
 con.commit()
 
-cur.execute("CREATE TABLE MammalMapKey(family varchar, genus varchar, species varchar, species_code varchar);")
+cur.execute("CREATE TABLE mcdb.MammalMapKey(family varchar, genus varchar, species varchar, species_code varchar);")
+con.commit()
 
 # Insert data into mammal key table
-cur.executemany("INSERT INTO MammalMapKey(family, genus, species, species_code) VALUES(%s,%s,%s,%s)", mammal_key_data)
-
-# Make the changes to the database persistent
+cur.executemany("INSERT INTO mcdb.MammalMapKey(family, genus, species, species_code) VALUES(%s,%s,%s,%s)", mammal_key_data)
 con.commit()
 
 # Close communication with the database
@@ -74,21 +72,19 @@ cur.close()
 con.close()
 
 # Set up ability to query bird key data
-con_string = "host='localhost' dbname= 'bbs' user='postgres' password=" + password
-con = psycopg2.connect(con_string)
+con= psycopg2.connect(host= "localhost", database="bbs", user="postgres", password= passwd)
 cur = con.cursor()
+
 
 # Create database for mammal key data 
 cur.execute("DROP TABLE IF EXISTS BirdMapKey")
 con.commit()
 
-cur.execute("CREATE TABLE BirdMapKey(family varchar, genus varchar, species varchar, species_code varchar);")
-
-# Insert data into mammal key table
-cur.executemany("INSERT INTO BirdMapKey(family, genus, species, species_code) VALUES(%s,%s,%s,%s)", bird_key_data)
+cur.execute("CREATE TABLE bbs.BirdMapKey(family varchar, genus varchar, species varchar, species_code varchar);")
 con.commit()
 
-# Make the changes to the database persistent
+# Insert data into mammal key table
+cur.executemany("INSERT INTO bbs.BirdMapKey (family, genus, species, species_code) VALUES(%s,%s,%s,%s)", bird_key_data)
 con.commit()
 
 # Close communication with the database
