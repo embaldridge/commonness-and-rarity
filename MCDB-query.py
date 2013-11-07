@@ -25,28 +25,30 @@ cur = con.cursor()
 
 # Query will go here
 sql_query = cur.execute("""SELECT 
-  communities.abundance, 
   sites.latitude, 
   sites.lonitude,
   species.family,
   species.genus, 
-  species.species
+  species.species,
+  MammalMapKey.species_code,
+  communities.abundance 
 FROM 
   mcdb.communities, 
   mcdb.sites, 
-  mcdb.species
+  mcdb.species,
+  mcdb.MammalMapKey
 WHERE 
   communities.site_id = sites.site_id AND
   communities.species_id = species.species_id AND
   species.species_level = 1 AND
+  (MammalMapKey.genus || MammalMapKey.species) = (species.genus || species.species) AND
   communities.abundance NOTNULL;""")
 mcdb_data = cur.fetchall()    
 
 cur.close
 
 # Set up output parameters
-
-mcdb_header = (['Abundance', 'Latitude', 'Longitude', 'Family', 'Genus','Species'])
+mcdb_header = (['Latitude', 'Longitude', 'Family', 'Genus','Species', 'Filecode', 'Abundance'])
 mcdb_filename = 'MCDB_extracted.csv'
 
 
