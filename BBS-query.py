@@ -5,6 +5,18 @@ import string
 import psycopg2
 import getpass
 
+#Import data from a .csv file
+def import_data(filename):
+    datafile = open(filename, 'r')
+    datareader = csv.reader(datafile, delimiter=',')
+    
+    data = []
+    
+    for row in datareader:
+        data.append(row)
+
+    return data
+
 #Write outputs to .csv file 
 def output_data(filename, header, data):
     output_file = open(filename, "wb")
@@ -52,9 +64,18 @@ WHERE
 
 BBS_data = cur.fetchall()
 
+# Set up import for map keys
+
+bird_key_file = 'bird-map-key.csv'
+
+# Import map key data
+birds_with_maps = import_data(bird_key_file)
+
+# Check to make sure each BBS species has a map; append name code to file
+
 # Set up output parameters
 
-BBS_header = (['Latitude', 'Longitude','Family','Genus','Species','AOU','Abundance'])
+BBS_header = (['Latitude', 'Longitude','Family','Genus','Species','AOU','Abundance', 'SpCode'])
 BBS_filename = 'BBS_extracted.csv'
 
 
