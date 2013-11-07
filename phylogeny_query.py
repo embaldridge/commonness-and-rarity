@@ -1,5 +1,6 @@
 """ Script to extract species names from tree & stick into taxa abundance database """
 # Import modules
+import dendropy
 
 """ Set up database parameters and insert data into respective databases """
 # Get password for postgresql
