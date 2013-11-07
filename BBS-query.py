@@ -46,7 +46,6 @@ sql_query = cur.execute("""SELECT
     species.genus AS Genus, 
     species.species AS Species,
     BirdMapKey.species_code AS Filecode,
-    counts.Aou AS AOU,
     counts.SpeciesTotal AS Abundance 
 FROM 
     bbs.counts,
@@ -79,7 +78,7 @@ birds_with_maps = import_data(bird_key_file)
 
 # Set up output parameters
 
-BBS_header = (['Latitude', 'Longitude','Family','Genus','Species', 'Filecode', 'AOU','Abundance'])
+BBS_header = (['Latitude', 'Longitude','Family','Genus','Species', 'Filecode','Abundance'])
 BBS_filename = 'BBS_extracted.csv'
 
 
