@@ -3,9 +3,12 @@
 # Import modules
 import csv
 import glob
-import os
 import string
 from dbfpy import dbf
+import psycopg2
+import getpass
+
+
 
 # Write outputs to .csv file 
 def output_data(filename, header, data):
@@ -35,18 +38,64 @@ def make_key(filenames):
         db.close()
     return key
 
+
 # Get list of .dbf files in map directory
 mammal_files = glob.glob('data/Mammals_3.0/*/*_pl.dbf')
 bird_files = glob.glob('data/Passeriformes/*/*_pl.dbf')
+
+# Call map key function
+mammal_key_data = make_key(mammal_files)
+bird_key_data = make_key(bird_files)
+
+
+""" Set up database parameters and insert data into respective databases """
+# Get password for postgresql
+password = getpass.getpass()
+
+# Set up ability to query mammal key data
+con_string = "host='localhost' dbname= 'MammalMapKey' user='postgres' password=" + password
+con = psycopg2.connect(con_string)
+cur = con.cursor()
+
+# Create database for mammal key data 
+cur.execute("""DROP TABLE IF EXISTS MammalMapKey""", databasename)
+con.commit()
+
+cur.execute("""CREATE TABLE IF NOT EXISTS MammalMapKey 
+           family TEXT 
+           genus TEXT
+           species TEXT
+           species_code TEXT""")
+
+# Insert data into mammal key table
+cur.executemany("""INSERT INTO  VALUES(?,?,?,?)""", mammal_key_data)
+con.commit() 
+
+# Set up ability to query bird key data
+con_string = "host='localhost' dbname= 'BirdMapKey' user='postgres' password=" + password
+con = psycopg2.connect(con_string)
+cur = con.cursor()
+
+# Create database for mammal key data 
+cur.execute("""DROP TABLE IF EXISTS BirdMapKey""", databasename)
+con.commit()
+
+cur.execute("""CREATE TABLE IF NOT EXISTS BirdMapKey 
+           family TEXT 
+           genus TEXT
+           species TEXT
+           species_code TEXT""")
+
+# Insert data into mammal key table
+cur.executemany("""INSERT INTO  VALUES(?,?,?,?)""", bird_key_data)
+con.commit()
+
 
 # Set up output parameters
 key_header = (['Family', 'Genus','Species', 'Species code'])
 mammal_key_filename = 'mammal_maps_key.csv'
 bird_key_filename = 'bird_maps_key.csv'
 
-# Call map key function
-mammal_key_data = make_key(mammal_files)
-bird_key_data = make_key(bird_files)
 
 # Call data output function
 output_data(mammal_key_filename, key_header, mammal_key_data)
