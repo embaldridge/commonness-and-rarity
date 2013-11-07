@@ -20,8 +20,7 @@ key = getpass.getpass()
 
 """ Set up database capabilities """
 # Set up ability to query data
-con_string = "host='localhost' dbname='mcdb' user='postgres' password=" + key
-con = psycopg2.connect(con_string)
+con= psycopg2.connect(host= "localhost", database="mcdb", user="postgres", password= key)
 cur = con.cursor()
 
 # Query will go here
@@ -42,6 +41,8 @@ WHERE
   species.species_level = 1 AND
   communities.abundance NOTNULL;""")
 mcdb_data = cur.fetchall()    
+
+cur.close
 
 # Set up output parameters
 
