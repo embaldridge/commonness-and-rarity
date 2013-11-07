@@ -45,17 +45,20 @@ sql_query = cur.execute("""SELECT
     species.family AS Family,
     species.genus AS Genus, 
     species.species AS Species,
+    BirdMapKey.species_code AS Filecode,
     counts.Aou AS AOU,
     counts.SpeciesTotal AS Abundance 
 FROM 
     bbs.counts,
     bbs.species,
     bbs.routes,
-    bbs.weather
+    bbs.weather,
+    bbs.BirdMapKey
 WHERE
     counts.Aou = species.AOU AND
     (counts.statenum * 1000 + counts.route) = (routes.statenum * 1000 + routes.route) AND
     (counts.statenum * 10000000 + counts.route * 10000 + counts.year) = (weather.statenum * 10000000 + weather.route * 10000 + weather.year) AND
+    (BirdMapKey.genus || BirdMapKey.species) = (species.genus || species.species) AND
     counts.countrynum = 840 AND 
     counts.RPID = 101 AND 
     species.sporder = 'Passeriformes' AND 
@@ -76,7 +79,7 @@ birds_with_maps = import_data(bird_key_file)
 
 # Set up output parameters
 
-BBS_header = (['Latitude', 'Longitude','Family','Genus','Species','AOU','Abundance', 'SpCode'])
+BBS_header = (['Latitude', 'Longitude','Family','Genus','Species', 'Filecode', 'AOU','Abundance'])
 BBS_filename = 'BBS_extracted.csv'
 
 
