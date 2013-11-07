@@ -53,42 +53,55 @@ bird_key_data = make_key(bird_files)
 password = getpass.getpass()
 
 # Set up ability to query mammal key data
-con_string = "host='localhost' dbname= 'MammalMapKey' user='postgres' password=" + password
+con_string = "host='localhost' dbname= 'mcdb' user='postgres' password=" + password
 con = psycopg2.connect(con_string)
 cur = con.cursor()
 
-# Create database for mammal key data 
-cur.execute("""DROP TABLE IF EXISTS MammalMapKey""", databasename)
+# Create table for mammal key data 
+cur.execute("""DROP TABLE IF EXISTS MammalMapKey""")
 con.commit()
 
 cur.execute("""CREATE TABLE IF NOT EXISTS MammalMapKey 
-           family TEXT 
-           genus TEXT
-           species TEXT
-           species_code TEXT""")
+           (family character varying(50), 
+           genus character varying(50),
+           species character varying(50),
+           species_code character varying(50));""")
 
 # Insert data into mammal key table
-cur.executemany("""INSERT INTO  VALUES(?,?,?,?)""", mammal_key_data)
-con.commit() 
+cur.executemany("""INSERT INTO MammalMapKey VALUES(%s,%s,%s,%s)""", mammal_key_data)
+
+# Make the changes to the database persistent
+con.commit()
+
+# Close communication with the database
+cur.close()
+con.close()
 
 # Set up ability to query bird key data
-con_string = "host='localhost' dbname= 'BirdMapKey' user='postgres' password=" + password
+con_string = "host='localhost' dbname= 'bbs' user='postgres' password=" + password
 con = psycopg2.connect(con_string)
 cur = con.cursor()
 
 # Create database for mammal key data 
-cur.execute("""DROP TABLE IF EXISTS BirdMapKey""", databasename)
+cur.execute("""DROP TABLE IF EXISTS BirdMapKey""")
 con.commit()
 
 cur.execute("""CREATE TABLE IF NOT EXISTS BirdMapKey 
-           family TEXT 
-           genus TEXT
-           species TEXT
-           species_code TEXT""")
+           (family character varying(50), 
+           genus character varying(50),
+           species character varying(50),
+           species_code character varying(50));""")
 
 # Insert data into mammal key table
-cur.executemany("""INSERT INTO  VALUES(?,?,?,?)""", bird_key_data)
+cur.executemany("""INSERT INTO BirdMapKey VALUES(%s,%s,%s,%s)""", bird_key_data)
 con.commit()
+
+# Make the changes to the database persistent
+con.commit()
+
+# Close communication with the database
+cur.close()
+con.close()
 
 
 # Set up output parameters
