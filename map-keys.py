@@ -58,17 +58,13 @@ con = psycopg2.connect(con_string)
 cur = con.cursor()
 
 # Create table for mammal key data 
-cur.execute("""DROP TABLE IF EXISTS MammalMapKey""")
+cur.execute("DROP TABLE IF EXISTS MammalMapKey")
 con.commit()
 
-cur.execute("""CREATE TABLE IF NOT EXISTS MammalMapKey 
-           (family character varying(50), 
-           genus character varying(50),
-           species character varying(50),
-           species_code character varying(50));""")
+cur.execute("CREATE TABLE MammalMapKey(family varchar, genus varchar, species varchar, species_code varchar);")
 
 # Insert data into mammal key table
-cur.executemany("""INSERT INTO MammalMapKey VALUES(%s,%s,%s,%s)""", mammal_key_data)
+cur.executemany("INSERT INTO MammalMapKey(family, genus, species, species_code) VALUES(%s,%s,%s,%s)", mammal_key_data)
 
 # Make the changes to the database persistent
 con.commit()
@@ -83,17 +79,13 @@ con = psycopg2.connect(con_string)
 cur = con.cursor()
 
 # Create database for mammal key data 
-cur.execute("""DROP TABLE IF EXISTS BirdMapKey""")
+cur.execute("DROP TABLE IF EXISTS BirdMapKey")
 con.commit()
 
-cur.execute("""CREATE TABLE IF NOT EXISTS BirdMapKey 
-           (family character varying(50), 
-           genus character varying(50),
-           species character varying(50),
-           species_code character varying(50));""")
+cur.execute("CREATE TABLE BirdMapKey(family varchar, genus varchar, species varchar, species_code varchar);")
 
 # Insert data into mammal key table
-cur.executemany("""INSERT INTO BirdMapKey VALUES(%s,%s,%s,%s)""", bird_key_data)
+cur.executemany("INSERT INTO BirdMapKey(family, genus, species, species_code) VALUES(%s,%s,%s,%s)", bird_key_data)
 con.commit()
 
 # Make the changes to the database persistent
