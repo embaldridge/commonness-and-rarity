@@ -1,16 +1,29 @@
 """ Script to extract species names from tree & stick into taxa abundance database """
 # Import modules
 from Bio import Phylo
+import string
 import getpass
 import psycopg2
 
+#Get species names from phylogenetic tree.
+def get_species_names(filepath):
+    #Open tree and read tips
+    trees = Phylo.parse(filepath, "newick")
+    names = []
+    for tree in trees:
+        tips = tree.get_terminals()
+        names = names + [tips.split("_")] #separates genus and specific epithet
+    
+    return names
 
-# Open bird phylogeny
-bird_tree = Phylo.parse("data/AllBirdsHackett1.tre", "newick")
-print(bird_tree)
+# Set up parameters for getting the name data
+bird_tree_file = "data/AllBirdsHackett1.tre"
+mammal_tree_file = "data/mammal-supertree.tre"
 
-# Open mammal phylogeny
-mammal_tree = Phylo.parse("data/mammal-supertree.tre", "newick")
+
+# Call function to get names
+mammal_key_data = get_species_names(mammal_tree_file)
+bird_key_data = get_species_names(bird_tree_file)
 
 
 """ Set up database parameters and insert data into respective databases """
@@ -41,7 +54,7 @@ con= psycopg2.connect(host= "localhost", database="bbs", user="postgres", passwo
 cur = con.cursor()
 
 
-# Create database for mammal key data 
+# Create database for bird key data 
 cur.execute("DROP TABLE IF EXISTS bird_phylogeny")
 con.commit()
 
