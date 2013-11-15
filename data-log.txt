@@ -1,4 +1,5 @@
 EcoData Retriever version 1.4, MCDB and BBS accessed 11 Feb 2013.
+MCDB and BBS data redownloaded into postgres database, EcoData Retriever version 1.5, October 2013.
 
 Mammal supertree,  Fritz et al. 2009.
 (http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2009.01307.x/abstract) 
