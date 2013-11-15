@@ -1,6 +1,17 @@
 """ Script to extract species names from tree & stick into taxa abundance database """
 # Import modules
-import dendropy
+from Bio import Phylo
+import getpass
+import psycopg2
+
+
+# Open bird phylogeny
+bird_tree = Phylo.parse("data/AllBirdsHackett1.tre", "newick")
+print(bird_tree)
+
+# Open mammal phylogeny
+mammal_tree = Phylo.parse("data/mammal-supertree.tre", "newick")
+
 
 """ Set up database parameters and insert data into respective databases """
 # Get password for postgresql
