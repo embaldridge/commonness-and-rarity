@@ -37,11 +37,11 @@ cur = con.cursor()
 cur.execute("DROP TABLE IF EXISTS bird_phylogeny")
 con.commit()
 
-cur.execute("CREATE TABLE bbs.bird_phylogeny(family varchar, genus varchar, species varchar, species_code varchar);")
+cur.execute("CREATE TABLE bbs.bird_phylogeny(genus varchar, species varchar);")
 con.commit()
 
 # Insert data into bird key table
-cur.executemany("INSERT INTO bbs.bird_phylogeny (family, genus, species, species_code) VALUES(%s,%s,%s,%s)", bird_key_data)
+cur.executemany("INSERT INTO bbs.bird_phylogeny (genus, species) VALUES(%s,%s)", bird_key_data)
 con.commit()
 
 # Close communication with the database
@@ -67,11 +67,11 @@ cur = con.cursor()
 cur.execute("DROP TABLE IF EXISTS mammal_phylogeny")
 con.commit()
 
-cur.execute("CREATE TABLE mcdb.mammal_phylogeny(family varchar, genus varchar, species varchar, species_code varchar);")
+cur.execute("CREATE TABLE mcdb.mammal_phylogeny(genus varchar, species varchar);")
 con.commit()
 
 # Insert data into mammal key table
-cur.executemany("INSERT INTO mcdb.mammal_phylogeny(family, genus, species, species_code) VALUES(%s,%s,%s,%s)", mammal_key_data)
+cur.executemany("INSERT INTO mcdb.mammal_phylogeny(genus, species) VALUES(%s,%s)", mammal_key_data)
 con.commit()
 
 # Close communication with the database
