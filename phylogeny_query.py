@@ -28,5 +28,6 @@ def output_data(filename, header, data):
     return filename
 
 #Get species names from files, put into web query, get pruned tree.
-
+BBS_filename = 'BBS_extracted.csv'
+mcdb_filename = 'MCDB_extracted.csv'
 
