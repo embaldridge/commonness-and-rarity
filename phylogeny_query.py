@@ -31,3 +31,8 @@ def output_data(filename, header, data):
 BBS_filename = 'BBS_extracted.csv'
 mcdb_filename = 'MCDB_extracted.csv'
 
+BBS_data = import_data(BBS_filename)
+mcdb_data = import_data(mcdb_filename)
+
+
+
