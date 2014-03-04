@@ -23,7 +23,7 @@ key = getpass.getpass()
 con= psycopg2.connect(host= "localhost", database="mcdb", user="postgres", password= key)
 cur = con.cursor()
 
-# Query will go here
+# MCDB query
 sql_query = cur.execute("""SELECT 
   sites.latitude, 
   sites.lonitude,
