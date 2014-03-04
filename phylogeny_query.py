@@ -38,9 +38,10 @@ def PhyloCommons_species_list(species_list_file, tree_name):
         species_list_webified.append(record[3] + '+'
         + record[4] + '%2C') 
                
-    species_list_webified.append([tree_name])
+    species_list_webified.append(tree_name)
   
     species_string_webified = ''.join(map(str, species_list_webified))
+    species_string_webified.strip
     
     return species_string_webified    
 
@@ -53,8 +54,9 @@ bird_tree_name = '&tree=jetz_birds'
 
 # Get URLs.
 BBS_URL = PhyloCommons_species_list(BBS_filename, bird_tree_name)
-
 MCDB_URL = PhyloCommons_species_list(mcdb_filename, mammal_tree_name)
+print(BBS_URL)
+print(MCDB_URL)
 
 BBS_tree_result = urllib2.urlopen(BBS_URL)
 BBS_tree = BBS_tree_result.read()
