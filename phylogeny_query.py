@@ -27,20 +27,26 @@ def output_data(filename, header, data):
     output_file.close()
     return filename
 
+# Extract species names from files, put into string.
+def PhyloCommons_species_list(species_list_file, tree_name):
+    species_list_webified = 'http://phylocommons.org/query/prune=True&format=newick&taxa='
+    species_list = import_data(filename)
+    for species in species_list:
+        #Get genus, species
+        species_list_webified + [[record[3]] + ['+'] + [[record[4]] + ['%2C']
+        
+
 #Get species names from files, put into web query, get pruned tree.
 BBS_filename = 'BBS_extracted.csv'
 mcdb_filename = 'MCDB_extracted.csv'
 
-BBS_data = import_data(BBS_filename)
-mcdb_data = import_data(mcdb_filename)
+mammal_tree_name = '&tree=bininda-emonds_mammals'
+bird_tree_name = '&tree=jetz_birds'
 
-# Query BBS data.
-base_url= 'http://phylocommons.org/query/prune=True&format=newick
-BBS_query_url&taxa='
-mammal_tree_name= '&tree=bininda-emonds_mammals'
+# Get URLs.
+BBS_URL = PhyloCommons_species_list(BBS_filename, bird_tree_name)
+MCDB_URL = PhyloCommons_species_list(mcdb_filename, mammal_tree_name)
 
-= 'http://phylocommons.org/query/prune=True&format=newick&taxa=Homo+sapiens%2CGorilla+gorilla%2CPan+paniscus%2CPan+troglodytes&tree=bininda-emonds_mammals'
- 
 result = urllib2.urlopen(my_query_url)
 tree = result.read()
 
