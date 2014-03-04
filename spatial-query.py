@@ -42,12 +42,10 @@ cur = con.cursor()
 # RPID = 101 selects for standard routes.
 sql_query = cur.execute("""SELECT 
     routes.lati AS latitude, 
-    routes.loni AS longitude,
-    
+    routes.loni AS longitude    
 FROM 
     bbs.routes,
-    bbs.weather,
-
+    bbs.weather
 WHERE
     (routes.statenum * 1000 + routes.route) = (weather.statenum * 1000 + weather.route) AND
     weather.countrynum = 840 AND weather.rpid = 101 AND weather.year = 2005;""")
@@ -55,9 +53,6 @@ WHERE
 BBS_potential_routes = cur.fetchall()
 
 cur.close
-
-""" Get password for postgresql"""
-key = getpass.getpass()
 
 
 """ Set up database capabilities """
@@ -68,8 +63,7 @@ cur = con.cursor()
 # MCDB potential sites query.
 sql_query = cur.execute("""SELECT 
   sites.latitude, 
-  sites.lonitude,
-  
+  sites.lonitude  
 FROM 
   mcdb.sites;""")
 
