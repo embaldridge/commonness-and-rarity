@@ -30,7 +30,7 @@ def output_data(filename, header, data):
 
 # Extract species names from files, put into string.
 def PhyloCommons_species_list(species_list_file, tree_name):
-    species_list_webified = 'http://phylocommons.org/query/prune=True&format=newick&taxa='
+    species_list_webified = ['http://phylocommons.org/query/prune=True&format=newick&taxa=']
     species_list = import_data(species_list_file)
     for record in species_list:
         #Get genus, species
