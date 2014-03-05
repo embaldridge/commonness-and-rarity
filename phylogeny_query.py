@@ -14,6 +14,8 @@ def import_data(filename):
     
     data = []
     
+    next(datareader, None)  # skip the header
+    
     for row in datareader:
         data.append(row)
 
@@ -30,20 +32,40 @@ def output_data(filename, header, data):
 
 # Extract species names from files, put into string.
 def PhyloCommons_species_list(species_list_file, tree_name):
-    species_list_webified = ['http://phylocommons.org/query/prune=True&format=newick&taxa=']
-    
+    full_tree = ['genus, species, branch_length']
+           
     species_list = import_data(species_list_file)
-    for record in species_list:
-        #Get genus, species
-        species_list_webified.append(record[3] + '+'
-        + record[4] + '%2C') 
-               
-    species_list_webified.append(tree_name)
-  
-    species_string_webified = ''.join(map(str, species_list_webified))
-    species_string_webified.strip
     
-    return species_string_webified    
+    species_url_list = ['http://phylocommons.org/query/prune=True&format=newick&taxa=']
+    
+    for record in species_list:
+        if len(species_url_list) >= 10:
+            #Get genus, species
+            species_url_list.append(record[3] + '+'
+        + record[4] + '%2C' + tree_name) 
+               
+  
+            species_url = ''.join(map(str, species_url_list))
+            species_url.strip
+            print(species_url)
+    
+            tree_result = urllib2.urlopen(species_url)
+            tree = tree_result.read()
+        
+            print(tree)
+        
+            full_tree = full_tree.append(tree)
+            
+            species_url_list = ['http://phylocommons.org/query/prune=True&format=newick&taxa=']
+        
+        else:
+            species_url_list.append(record[3] + '+'
+                    + record[4] + '%2C')            
+        
+        
+        species_url_list.append(tree_name)
+        
+    return full_tree   
 
 #Get species names from files, put into web query, get pruned tree.
 BBS_filename = 'BBS_extracted.csv'
