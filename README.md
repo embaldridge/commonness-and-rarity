@@ -1,4 +1,4 @@
 commonness-and-rarity
 =====================
 
-This repository contains the work for my dissertation on the commonness and rarity of species
+This repository contains some ideas for several projects exploring the commonness and rarity of species.
