@@ -17,8 +17,9 @@ For all areas, list your sponsoring scientist(s) and institution(s) in the overv
 ##Research overview
 
 ##Intellectual 
+
 ##Broader impacts
-Current efforts to provide accessibility to chronically ill/disabled scientists are inadequate or non-existent.  I will increase accessibility for scientists by working with Data Carpentry to provide remote access to Data Carpentry workshops, which will allow scientists who need to attend remotely to be able to attend and learn skills that provide a more efficient workflow as well as facilitating remote research and collaboration.  These skills can make possible/easier for a chronically ill researcher to remain an active scientist. 
+Current efforts to provide accessibility to chronically ill/disabled scientists are inadequate or non-existent.  I will increase accessibility for scientists by working with Data Carpentry to provide remote access to Data Carpentry workshops. Remote access will allow scientists who need to attend remotely to be able to attend and learn skills that provide a more efficient workflow as well as facilitating remote research and collaboration.  These skills can make possible/easier for a chronically ill researcher to remain an active scientist. 
 
 
 <!--
