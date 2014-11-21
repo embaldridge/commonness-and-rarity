@@ -17,6 +17,7 @@ For all areas, list your sponsoring scientist(s) and institution(s) in the overv
 ##Research overview
 
 ##Intellectual 
+Attempting to approach mechanism for ubiquitous pattern of commonness and rarity.  Trait-based approach + phylogeny over multiple taxa.
 
 ##Broader impacts
 Current efforts to provide accessibility to chronically ill/disabled scientists are inadequate or non-existent.  I will increase accessibility for scientists by working with Data Carpentry to provide remote access to Data Carpentry workshops. Remote access will allow scientists who need to attend remotely to be able to attend and learn skills that provide a more efficient workflow as well as facilitating remote research and collaboration.  These skills can make it possible/easier for a chronically ill researcher to remain an active scientist. 
@@ -33,18 +34,43 @@ significance; 3) training objectives and plan for achieving them (these may incl
 
 ##Research objectives, methods, and significance
 ##Future directions/career development
-What career?
+Independent researcher  
+I have a chronic illness which limits my ability to pursue the traditional academic career path, or the traditional non-academic career path.  Travel to conferences or workshops is no longer an option, I frequently don't leave my property for weeks/months, had to surrender driver's license, have periods of serious cognitive dysfunction, periods where I am reliant on a cane.  <!-- I really don't know how much to disclose.  My inclination is to gloss over it personally, but I think from a cultural changing perspective that it could be valuable to fully disclose to indicate that I've got some really significant problems but am still doing research anyway -->  I've set up my workspace at home, and have finished up my dissertation working remotely in a different timezone from my advisor.  
+
+Career development
+Computational ecology skills, combined with data wrangling skills and open access data provide a way for me to continue doing science without institutional support.  Working with Data and Software Carpentry to help spread the skills gives me a larger pool of potential collaborators, plus it allows me to be able to teach.
+
 
 ##Justification of sponsor(s) and host institution(s)
 
 ##Goals and benchmarks
+I think I got the data wrangling bit done.
+
+Need to learn phylogenetic analysis
+
+Write more scripts, do things.
+
+Maybe learn more spatial analysis techniques.
 
 ##Broader impacts
-Inadequacy of current efforts to include chronically ill researchers.
-A chronically ill researcher is working with less energy, and less physical capacity than an able bodied scientist.  While dealing with a failing body, a scientist should not also have to fight the numerous institutional barriers to remaining an active participant in science.  Having to self-advocate for access robs the researchers of valuable and limited time and energy that he/she could use to be actually doing science.  Many workshops/conferences lack any accessibility information, and the accessibility information that is available is often restricted to the more traditionally visible disability (vision/hearing impairment, mobility restrictions) and buried on the organizational website, rather than being provided in the announcement. Remote access/attendance is          
-Tools that a chronically ill researcher can use to remain active in the field.  
-Plan for teaching these skills.  
-Write accessibility guidelines for workshops/conferences, since clearly no one else is going to do it. 
+<!--Inadequacy of current efforts to include chronically ill researchers.-->
+A chronically ill researcher is working with less energy, and less physical capacity than an able bodied scientist.  While dealing with a failing body, a scientist should not also have to fight the numerous institutional barriers to remaining an active participant in science.  Having to self-advocate for access robs the researchers of valuable and limited time and energy that he/she could use to be actually doing science.  Many workshops/conferences lack any accessibility information, and the accessibility information that is available is often restricted to the more traditionally visible disability (vision/hearing impairment, mobility restrictions) and buried on the organizational website, rather than being provided in the announcement.  Providing remote access/attendance is a way that chronically ill/ disabled scientists can attend workshops and conferences that allow them to remain current on cutting edge research and techniques in their field.
+
+
+<!--Tools that a chronically ill researcher can use to remain active in the field. -->
+As a chronically ill researcher, I have found that computational tools have been invaluable in allowing me to continue working as an active researcher.  Not only do these skills make remote collaboration much easier/possible, these tools also make executing research much easier.  
+Version control
+Programming
+Database skills
+
+
+<!--Plan for teaching these skills.-->
+I have been working with Ethan White with Data Carpentry to provide remote accessibility to workshops, as well as making certain that disability accessibility for workshops are part of the announcement.
+
+I have also written a simple Python script to generate a sample disability accessibility statement for workshops/conferences.
+
+I have also been active in disclosing my illness and trying to raise awareness about chronically ill/disabled researchers.
+
 
 <!--
 Biographical Sketch[2 page limit]
@@ -60,7 +86,7 @@ All applications must include a supplementary document of no more than two pages
 #Data management plan
 Research products (code) available on GitHub, version of code used in final analysis will be archived.
 
-Using publicly available data, so data management plan (for data) is not neccessary. 
+Using publicly available data, so data management plan (for data) is not necessary. 
 <!-- 
 Mentoring Plan:
 A complete sponsoring scientist statement consists of two
@@ -76,3 +102,4 @@ Supplementary Documents–Other Supplementary Docs.
 2.Teaching plan, if the teaching option is being requested in Competitive Areas 1 or 2 [3 pages].
 -->
 #Dissertation Research 
+Competed five species abundance distribution models against each other, bunches of data, etc, rework intro for chapter 1 plus extra bits for chapters 2 & 3. 
