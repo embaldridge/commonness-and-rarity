@@ -19,7 +19,7 @@ For all areas, list your sponsoring scientist(s) and institution(s) in the overv
 ##Intellectual 
 
 ##Broader impacts
-Current efforts to provide accessibility to chronically ill/disabled scientists are inadequate or non-existent.  I will increase accessibility for scientists by working with Data Carpentry to provide remote access to Data Carpentry workshops. Remote access will allow scientists who need to attend remotely to be able to attend and learn skills that provide a more efficient workflow as well as facilitating remote research and collaboration.  These skills can make possible/easier for a chronically ill researcher to remain an active scientist. 
+Current efforts to provide accessibility to chronically ill/disabled scientists are inadequate or non-existent.  I will increase accessibility for scientists by working with Data Carpentry to provide remote access to Data Carpentry workshops. Remote access will allow scientists who need to attend remotely to be able to attend and learn skills that provide a more efficient workflow as well as facilitating remote research and collaboration.  These skills can make it possible/easier for a chronically ill researcher to remain an active scientist. 
 
 
 <!--
@@ -32,16 +32,19 @@ significance; 3) training objectives and plan for achieving them (these may incl
 ##Intro
 
 ##Research objectives, methods, and significance
-
-##Training objectives
-
 ##Future directions/career development
+What career?
 
 ##Justification of sponsor(s) and host institution(s)
 
 ##Goals and benchmarks
 
 ##Broader impacts
+Inadequacy of current efforts to include chronically ill researchers.
+A chronically ill researcher is working with less energy, and less physical capacity than an able bodied scientist.  While dealing with a failing body, a scientist should not also have to fight the numerous institutional barriers to remaining an active participant in science.  Having to self-advocate for access robs the researchers of valuable and limited time and energy that he/she could use to be actually doing science.  Many workshops/conferences lack any accessibility information, and the accessibility information that is available is often restricted to the more traditionally visible disability (vision/hearing impairment, mobility restrictions) and buried on the organizational website, rather than being provided in the announcement. Remote access/attendance is          
+Tools that a chronically ill researcher can use to remain active in the field.  
+Plan for teaching these skills.  
+Write accessibility guidelines for workshops/conferences, since clearly no one else is going to do it. 
 
 <!--
 Biographical Sketch[2 page limit]
@@ -55,6 +58,9 @@ Data Management Plan:
 All applications must include a supplementary document of no more than two pages labeled "Data Management Plan". Describe plans for data management and sharing of the products of research, or assert the absence of the need for such plans. Upload this to Supplementary Documents–Data Management Plan.
 -->
 #Data management plan
+Research products (code) available on GitHub, version of code used in final analysis will be archived.
+
+Using publicly available data, so data management plan (for data) is not neccessary. 
 <!-- 
 Mentoring Plan:
 A complete sponsoring scientist statement consists of two
