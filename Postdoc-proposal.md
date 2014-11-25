@@ -13,14 +13,16 @@ clearly address and identify in separate statements using the three boxes:(1) an
 For all areas, list your sponsoring scientist(s) and institution(s) in the overview.
 -->
 #Project summary
-
 ##Research overview
+The ultimate goal of my research is to gain a better understanding of the mechanisms that produce commonness and rarity in
+an ecological context. First, I will explore the evolutionary basis of commonness and rarity by determining if commonness and rarity are
+phylogenetically heritable. Second, I will identify if regional occupancy and abundance can be explained by life history traits.
 
 ##Intellectual 
-Attempting to approach mechanism for ubiquitous pattern of commonness and rarity.  Trait-based approach + phylogeny over multiple taxa.
+While the hollow curve species abundance distribution is a ubiquitious macroecological pattern, attempting to identify mechanisms of commonness and rarity through model fitting has been unsuccessful.  Recent research suggests that examining crucial constraints that produce the pattern is a more effective approach to identify mechanism.  <!--Something about S and N and interesting which species are likely to be more abundant, conservation, utility of trait based approaches + phylogeny over multiple taxa. -->
 
 ##Broader impacts
-Current efforts to provide accessibility to chronically ill/disabled scientists are inadequate or non-existent.  I will increase accessibility for scientists by working with Data Carpentry to provide remote access to Data Carpentry workshops. Remote access will allow scientists who need to attend remotely to be able to attend and learn skills that provide a more efficient workflow as well as facilitating remote research and collaboration.  These skills can make it possible/easier for a chronically ill researcher to remain an active scientist. 
+I am a computational macroecologist who is disabled by chronic illness.  My research uses publicly available data and computational methods, allowing me to continue to be an active researcher without funding or an institutional affliation.  I have completed <!-- will complete --> my PhD by collaborating remotely with my advisor.  However, to continue to do cutting edge science, I need to be able to stay current with the current research and present my own research at conferences, and be able to participate in workshops and working groups.  The vast majority of current efforts to provide accessibility to chronically ill/disabled scientists are inadequate or non-existent.  I will increase accessibility for scientists by working with Data Carpentry to provide remote access to Data Carpentry workshops. Remote access will allow scientists who need to attend remotely to be able to attend and learn skills that provide a more efficient workflow as well as facilitating remote research and collaboration.  These skills can make it possible/easier for a chronically ill researcher to remain an active scientist. 
 
 
 <!--
