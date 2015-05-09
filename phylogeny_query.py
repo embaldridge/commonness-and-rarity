@@ -31,8 +31,8 @@ def output_data(filename, header, data):
     return filename
 
 # Import trees.
-mammal_tree = Phylo.read("data/mammal-supertree.tre", "newick")
-bird_tree = Phylo.read("data/AllBirdsHackett1.tre", "newick")
+mammal_tree = Phylo.parse("data/mammal-supertree.tre", "newick")
+bird_tree = Phylo.parse("data/AllBirdsHackett1.tre", "newick")
 
 #Get species names from files, put into web query, get pruned tree.
 BBS_filename = 'BBS_extracted.csv'
