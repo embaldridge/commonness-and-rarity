@@ -1,5 +1,4 @@
 # Ignore data subfolder in commonness-and-rarity repository.  These data should not be publicly available.
 
 data/
-Dissertation-proposal.pdf
-Hypotheses.pdf
+
